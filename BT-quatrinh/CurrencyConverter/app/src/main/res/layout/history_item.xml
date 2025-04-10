@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Thêm ID cho TextView ngày tháng -->
+    <TextView
+        android:id="@+id/history_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#888"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <!-- Thêm ID cho TextView số tiền gốc -->
+        <TextView
+            android:id="@+id/history_from"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="→"
+            android:textSize="16sp" />
+
+        <!-- Thêm ID cho TextView số tiền đã chuyển đổi -->
+        <TextView
+            android:id="@+id/history_to"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Thêm ID cho TextView tỷ giá -->
+    <TextView
+        android:id="@+id/history_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#666"
+        android:textSize="14sp" />
+</LinearLayout>
