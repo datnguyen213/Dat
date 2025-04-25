@@ -1,0 +1,12 @@
+<!-- res/drawable/background_sunny.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/holo_blue_light" />
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#90CAF9"
+                android:endColor="#2196F3"
+                android:angle="300"/>
+        </shape>
+    </item>
+</layer-list>

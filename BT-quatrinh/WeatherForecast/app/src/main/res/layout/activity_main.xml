@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_sunny">
+
+    <!-- Scroll nội dung thời tiết -->
+    <ScrollView
+        android:id="@+id/scrollWeather"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- THỜI TIẾT HIỆN TẠI -->
+            <LinearLayout
+                android:id="@+id/currentWeatherLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_my_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vị trí hiện tại"
+                    android:textSize="24sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hồ Chí Minh"
+                    android:textSize="25sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="#FF000000" />
+
+                <TextView
+                    android:id="@+id/tv_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="28°C"
+                    android:textSize="48sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="#FFFFFF" />
+
+
+                <LinearLayout
+                    android:id="@+id/otherWeatherDetails_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:paddingTop="4dp"
+                    >
+
+                    <!-- Icon thời tiết -->
+                    <ImageView
+                        android:id="@+id/imgWeatherIcon"
+                        android:layout_width="46dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_sunny" />
+
+                    <!-- Khoảng cách giữa icon và text -->
+                    <Space
+                        android:layout_width="8dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trời nắng"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:textColor="#FF000000" />
+                </LinearLayout>
+
+
+                <!-- Thêm các thông tin thời tiết khác nếu cần -->
+                <!-- Ví dụ: Độ ẩm, tốc độ gió... -->
+                <LinearLayout
+                    android:id="@+id/otherWeatherDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="4dp"
+                    >
+
+                    <!-- Độ ẩm -->
+                    <TextView
+                        android:id="@+id/tv_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Độ ẩm: 65%"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="#FFFFFF" />
+
+                    <!-- Tốc độ gió -->
+                    <TextView
+                        android:id="@+id/tv_wind_speed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gió: 1.03 m/s"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="16dp"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- cardForecast -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardForecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/currentWeatherLayout"
+                android:layout_margin="16dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                android:background="@android:color/transparent"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="#80FFFFFF"> <!-- trắng mờ: 50% opacity -->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="0dp"
+                    >
+
+                    <!-- DỰ BÁO THEO GIỜ -->
+                    <TextView
+                        android:id="@+id/tv_hourly_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dự báo theo giờ"
+                        android:paddingTop="8dp"
+                        android:paddingStart="12dp"
+                        android:textColor="#FF000000"
+                        android:textSize="16sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerHourly"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_margin="12dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- cardForecast_2 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardForecast_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardForecast"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true"
+                android:background="@android:color/transparent"
+                app:cardBackgroundColor="#80FFFFFF">
+
+                <!-- DỰ BÁO THEO NGÀY -->
+                <TextView
+                    android:id="@+id/tv_daily_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:text="Dự báo theo ngày"
+                    android:textColor="#FF000000"
+                    android:textSize="16sp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerDaily"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="14dp"
+                        android:padding="12dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- MapView -->
+            <!-- Google MapView -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="18dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Spinner for selecting layer -->
+            <Spinner
+                android:id="@+id/layerSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="16dp"
+                android:layout_alignParentEnd="true"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string-array name="weather_layers_labels">
+        <item>Mây</item>
+        <item>Lượng mưa</item>
+        <item>Nhiệt độ</item>
+    </string-array>
+
+    <string-array name="weather_layers_values">
+        <item>clouds_new</item>
+        <item>precipitation_new</item>
+        <item>temp</item>
+    </string-array>
+</resources>

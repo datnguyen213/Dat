@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Ngày -->
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="2025-04-17"
+        android:textColor="#FF000000"
+        android:textSize="16sp"
+        android:gravity="start" />
+
+    <!-- Ngày -->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_description"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Nhiều mây"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="16sp"-->
+<!--        android:gravity="start" />-->
+
+    <!-- Icon thời tiết -->
+    <ImageView
+        android:id="@+id/img_weather_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Weather Icon" />
+
+    <!-- Nhiệt độ Min/Max -->
+    <TextView
+        android:id="@+id/tv_temp_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="25°C - 32°C"
+        android:textColor="#FF000000"
+        android:textSize="16sp" />
+</LinearLayout>
