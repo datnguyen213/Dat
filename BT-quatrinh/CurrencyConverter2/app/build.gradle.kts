@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.gson)
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -40,7 +40,26 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.github.PhilJay:MPAndroidChart:3.1.0")
-    implementation("org.json:json:20210307")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    // Gson for JSON parsing
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    // RecyclerView for history list
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    // Room Database for local storage
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+    // MPAndroidChart for rate charts (optional)
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    // WorkManager for daily rate updates
+    implementation("androidx.work:work-runtime:2.9.0")
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }
