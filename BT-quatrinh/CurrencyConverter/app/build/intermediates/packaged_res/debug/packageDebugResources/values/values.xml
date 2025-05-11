@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="currency_codes">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>JPY</item>
+        <item>GBP</item>
+        <item>AUD</item>
+        <item>CAD</item>
+        <item>CHF</item>
+        <item>CNY</item>
+        <item>VND</item>
+        <item>KRW</item>
+        <item>SGD</item>
+        <item>THB</item>
+    </string-array>
+    <string-array name="currency_names">
+        <item>United States Dollar (USD)</item>
+        <item>Euro (EUR)</item>
+        <item>Japanese Yen (JPY)</item>
+        <item>British Pound (GBP)</item>
+        <item>Australian Dollar (AUD)</item>
+        <item>Canadian Dollar (CAD)</item>
+        <item>Swiss Franc (CHF)</item>
+        <item>Chinese Yuan (CNY)</item>
+        <item>Vietnamese Dong (VND)</item>
+        <item>South Korean Won (KRW)</item>
+        <item>Singapore Dollar (SGD)</item>
+        <item>Thai Baht (THB)</item>
+    </string-array>
+    <color name="black">#FF000000</color>
+    <color name="blue">#FF2196F3</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Currency Converter</string>
+    <style name="Base.Theme.CurrencyConverter" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.CurrencyConverter" parent="Base.Theme.CurrencyConverter"/>
+</resources>

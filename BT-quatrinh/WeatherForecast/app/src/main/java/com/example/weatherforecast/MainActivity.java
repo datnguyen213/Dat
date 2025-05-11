@@ -1,7 +1,9 @@
 package com.example.weatherforecast;
 
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +27,10 @@ import com.example.weatherforecast.adapter.DailyForecastAdapter;
 import com.example.weatherforecast.adapter.HourlyAdapter;
 import com.example.weatherforecast.viewModel.WeatherViewModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.Priority;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.model.TileOverlay;
@@ -44,6 +50,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import android.Manifest;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
     private TextView tvLocation, tvTemperature, tvDescription, tvHumidity, tvWindSpeed;
@@ -186,6 +194,69 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
     }
+//private void getCurrentLocation() {
+//    fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+//
+//    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) return;
+//
+//    fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
+//        if (location != null) {
+//            double latitude = location.getLatitude();
+//            double longitude = location.getLongitude();
+//
+//            // KHÔNG đè toạ độ cố định ở đây nữa!
+//
+//            weatherViewModel.fetchWeatherByCoordinates(latitude, longitude);
+//            weatherViewModel.fetchHourlyForecast(latitude, longitude);
+//
+//            if (mMap != null) {
+//                LatLng loc = new LatLng(latitude, longitude);
+//                mMap.clear();
+//                mMap.addMarker(new MarkerOptions().position(loc).title("Vị trí hiện tại"));
+//                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 10f));
+//            }
+//        } else {
+//            // Nếu không có last location, yêu cầu lấy location mới
+//            requestNewLocationData();
+//        }
+//    });
+//}
+//
+//    private void requestNewLocationData() {
+//        LocationRequest locationRequest = LocationRequest.create();
+//        locationRequest.setPriority(Priority.PRIORITY_HIGH_ACCURACY);
+//        locationRequest.setInterval(10000);
+//        locationRequest.setFastestInterval(5000);
+//        locationRequest.setNumUpdates(1); // Chỉ lấy 1 location mới
+//
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) return;
+//
+//        fusedLocationClient.requestLocationUpdates(locationRequest, new LocationCallback() {
+//            @Override
+//            public void onLocationResult(@NonNull LocationResult locationResult) {
+//                Location location = locationResult.getLastLocation();
+//                if (location != null) {
+//                    double latitude = location.getLatitude();
+//                    double longitude = location.getLongitude();
+//
+//                    weatherViewModel.fetchWeatherByCoordinates(latitude, longitude);
+//                    weatherViewModel.fetchHourlyForecast(latitude, longitude);
+//
+//                    if (mMap != null) {
+//                        LatLng loc = new LatLng(latitude, longitude);
+//                        mMap.clear();
+//                        mMap.addMarker(new MarkerOptions().position(loc).title("Vị trí hiện tại"));
+//                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+//                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 10f));
+//                    }
+//                } else {
+//                    Toast.makeText(MainActivity.this, "Không thể lấy vị trí mới.", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }, Looper.getMainLooper());
+//    }
+
 
     private void setWeatherLayer(String layerType) {
         if (currentOverlay != null) {
