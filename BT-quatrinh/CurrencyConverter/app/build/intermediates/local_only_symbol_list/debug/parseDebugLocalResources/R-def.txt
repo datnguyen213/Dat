@@ -1,0 +1,29 @@
+R_DEF: Internal format may change without notice
+local
+array currency_codes
+array currency_names
+color black
+color blue
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id amount_edit_text
+id convert_button
+id exchangeRateChart
+id from_currency_spinner
+id history_date
+id history_from
+id history_rate
+id history_recycler_view
+id history_to
+id result_text_view
+id to_currency_spinner
+layout activity_main
+layout history_item
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.CurrencyConverter
+style Theme.CurrencyConverter
+xml backup_rules
+xml data_extraction_rules
